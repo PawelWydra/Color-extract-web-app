@@ -6,7 +6,6 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import SubmitField
 
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sdfdsdsfdsf'
 app.config['UPLOADED_PHOTOS_DEST'] = 'uploads'
@@ -40,26 +39,10 @@ def upload_image():
         file_url = url_for('get_file', filename=filename)
         from chart import exact_color
         exact_color(filename)
+
     else:
         file_url = None
     return render_template("index.html", form=form, file_url=file_url)
-
-
-# @app.route('/plot.png')
-# def plot_png():
-#     fig = create_figure()
-#     output = io.BytesIO()
-#     FigureCanvas(fig).print_png(output)
-#     return Response(output.getvalue(), mimetype='image/png')
-#
-#
-# def create_figure():
-#     fig = Figure()
-#     axis = fig.add_subplot(1, 1, 1)
-#     xs = range(100)
-#     ys = [random.randint(1, 50) for x in xs]
-#     axis.plot(xs, ys)
-#     return fig
 
 
 
