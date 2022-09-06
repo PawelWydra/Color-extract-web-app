@@ -27,12 +27,12 @@ def color_to_df(input):
 
 
 def exact_color(input_image, resize=400, tolerance=12, zoom=1.5):
-    # # background
-    # bg = 'bg.png'
-    # fig, ax = plt.subplots(figsize=(192, 108), dpi=10)
-    # fig.set_facecolor('white')
-    # plt.savefig(bg)
-    # plt.close(fig)
+    # background
+    bg = 'bg.png'
+    fig, ax = plt.subplots(figsize=(192, 108), dpi=10)
+    fig.set_facecolor('white')
+    plt.savefig(bg)
+    plt.close(fig)
 
     # resize
     output_width = resize

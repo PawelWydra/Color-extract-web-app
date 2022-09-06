@@ -4,6 +4,7 @@ from flask_uploads import UploadSet, IMAGES, configure_uploads
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import SubmitField
+from color import ColorList
 
 
 app = Flask(__name__)
@@ -39,10 +40,12 @@ def upload_image():
         file_url = url_for('get_file', filename=filename)
         from chart import exact_color
         exact_color(filename)
-
+        color_list = ColorList(filename).color_list()
+        print(color_list)
     else:
         file_url = None
-    return render_template("index.html", form=form, file_url=file_url)
+        color_list = None
+    return render_template("index.html", form=form, file_url=file_url, color_list=color_list)
 
 
 
