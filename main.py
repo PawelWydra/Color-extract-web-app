@@ -39,7 +39,7 @@ def upload_image():
         filename = photos.save(form.photo.data)
         file_url = url_for('get_file', filename=filename)
         from chart import exact_color
-        exact_color(filename)
+        # exact_color(filename)
         color_list = ColorList(filename).color_list()
         print(color_list)
     else:
